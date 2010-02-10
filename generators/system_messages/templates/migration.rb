@@ -9,7 +9,7 @@ class CreateSystemMessages < ActiveRecord::Migration
       t.boolean       :dismissable, :default => false
       t.datetime      :expires
       t.references    :messageable, :polymorphic => true  
-      t.timestamp   
+      t.timestamps   
     end
   end
   
