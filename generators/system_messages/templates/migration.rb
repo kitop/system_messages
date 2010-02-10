@@ -11,6 +11,10 @@ class CreateSystemMessages < ActiveRecord::Migration
       t.references    :messageable, :polymorphic => true  
       t.timestamps   
     end
+
+    add_index :system_messages, [:dismissed, :expires], :name => 'viewable_index'
+    add_index :system_messages, [:messageable_type, :messageable_id], :name => 'messageable'
+
   end
   
   def self.down
